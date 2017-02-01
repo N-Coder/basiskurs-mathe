@@ -1,0 +1,65 @@
+%!TEX root = ../basiskurs.tex
+\section{Die komplexen Zahlen}
+
+\subsection{Literatur}
+\begin{enumerate}
+\item Dittmann, Komplexe Zahlen, bsv Mathematik, 1973-1995
+\item Nierdrenk-Felgner, LS Komplexe Zahlen, Klett Verlag 2004
+\end{enumerate}
+
+\subsection{Definition}
+\begin{itemize}
+	\item Wir führen auf $\mathbb{R}^2$ eine Multiplikation ein durch folgende Regel $(a,b) \cdot (c,d) = (ac-bd, bc+ad)$
+	Wie man leicht nachprüft, erhält man damit einen Körper $\mathbb{C}$.
+	Der Körper $\mathbb{C}$ enthält $\mathbb{R}$ mittels der injektiven Abbildung $\iota: \mathbb{C} \rightarrow \mathbb{R}: a \rightarrowtail (a,0)$.
+	Dabei ist $\iota$ mit $+$ und $\cdot$ verträglich.
+
+	\item Schreibweisen: Statt $e_1 = (1,0)$ schreibe 1, statt $e_2 = (0,1)$ schreibe $i$.
+	Jedes Element von $\mathbb{C}$ hat also eine eindeutige Darstellung der Form $a + b * i$ mit $a, b \in \mathbb{R}$.
+
+	\item Für $z = a+b*i \in \mathbb{C}$ heißt $Re(z)=a$ der Realteil und $Im(z)=b$ der Imaginärteil.
+\end{itemize}
+
+\subsection{Bemerkung}
+\begin{enumerate}
+	\item Die Zahl $i$ erfüllt $i^2 = -1$, denn $(0,1) \cdot (0,1) = (-1,0)$.
+	Man schreibt daher auch $i = \sqrt{-1}$.
+
+	\item Für $a \in \mathbb{R}_{\geq 0}$ gilt $(\sqrt{a} * i)^2 = a * (-1) = -a$, also $\pm \sqrt{a} * i = \sqrt{-a}$.
+
+	\item Für $z = a+bi \in \mathbb{C} \setminus \{0\}$ gilt
+	\[\frac{1}{z} = \frac{1}{a+bi} = \frac{a-bi}{(a+bi)(a-bi)} = \frac{a-bi}{a^2+b^2} = \frac{a}{a^2+b^2} - \frac{b}{a^2+b^2} * i\]
+\end{enumerate}
+
+\subsection{Beispiele}
+\begin{enumerate}
+	\item Für $n \in \mathbb{Z}$ gilt
+	\[i^n = \begin{cases}
+	i,  &\text{ falls } n \equiv 1 \text{ (mod 4)}\\
+	-1, &\text{ falls } n \equiv 2 \text{ (mod 4)}\\
+	-i, &\text{ falls } n \equiv 3 \text{ (mod 4)}\\
+	1,  &\text{ falls } n \equiv 0 \text{ (mod 4)}
+	\end{cases} \]
+
+	\item In $\mathbb{C}$ besitzt jede quadratische Gleichung genau 2 Lösungen (Mitternachtsformel).
+\end{enumerate}
+
+\subsection{Definition}
+Die Abbildung $\kappa: \mathbb{C} \rightarrow \mathbb{C}: a+b \rightarrowtail a-bi$ heißt die komplexe Konjugation.
+Für $z \in \mathbb{C}$ schreiben wir statt $\kappa(z)$ auch $\overline{z}$.
+
+\subsection{Bemerkung (Rechenregeln für die komplexe Konjugation)}
+\label{sec:regeln-komplexe}
+Fũr $z, z_1, z_2 \in \mathbb{C}$ gilt:
+\begin{enumerate}
+\item $\overline{z} = z$
+\item $\overline{z_1 + z_2} = \overline{z_1} + \overline{z_2}$
+\item $\overline{z_1 \cdot z_2} = \overline{z_1} \cdot \overline{z_2}$
+\item Für alle $a \in \mathbb{R}$ gilt $\overline{a \cdot z} = a \cdot \overline{z}$
+\item $\frac{1}{\overline{z}} = \overline{\frac{1}{z}}$ falls $z \neq 0$
+\item $z + \overline{z} = 2 a = 2 * Re(z)$ \\
+	$z - \overline{z} = 2 bi = 2 * Im(z) * i$
+	\todo{vervollständigen}
+\end{enumerate}
+
+\end{enumerate}

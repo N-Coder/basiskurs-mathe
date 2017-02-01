@@ -1,0 +1,68 @@
+%!TEX root = ../basiskurs.tex
+\section{Abbildungsgeometrie}
+
+\subsection{Literatur} Krat-Wöhrle, Geometrie 1+2, Bayrischer Schulbuchverlag 1972
+
+\subsection{Wiederholung} Eine Abbildung $\phi: \mathbb{A}^2(\mathbb{R}) \rightarrow \mathbb{A}^2(\mathbb{R})$ heißt Kongruenzabbildung, wenn sie Längen und Winkel erhält.
+
+\subsection{Beispiel} Translationen, Spiegelungen, Drehungen, Punktspiegelungen, Drehspiegelungen,...
+Die Menge aller Kongruenzabbildung bildet eine Gruppe (bzgl. der Komposition). Sie heißt die euklidische Gruppe $\mathbb{E}_2$.
+
+\subsection{Bemerkung}
+\begin{enumerate}
+	\item Seien G, H zwei parallele Geraden. Dann ist die Komposition von Spiegelungen $\sigma_H \circ \sigma_G$ die Translation um den doppelten Abstandsvektor von G nach H. \todo{Skizze}
+	\item Seien G, H zwei sich schneidende Geraden mit Schnittpunkt S. Dann ist die Komposition von Spiegelungen $\sigma_H \circ \sigma_G$ die Drehung um S um den doppelten Schnittpunkt. \todo{Skizze}
+	\item Aus 1 und 2 folgt, dass jede Kongruenzabbildung eine Komposition von Spiegelungen ist. Die Spiegelungen erzeugen also die Gruppe $\mathbb{E}_2$.
+\end{enumerate}
+
+\subsection{Beweis}
+\begin{enumerate}
+	\item \todo{Skizze}
+	\begin{align*}
+		d_G(P) &= \text{Abstand von P zu G} \\
+		\overline{PP'} &= 2 d_G(P) \\
+		d_H(P') &= \text{Abstand von P' zu G} \\
+		\overline{P'P''} &= 2 d_H(P')
+	\end{align*}
+
+	Insgesamt folgt: $|PP''| = 2 d_G(P) + 2 d_H(P') = 2 d_G(P') + 2 d_H(P') = 2 \overbrace{d_{GH}}^{\text{Abstand von G und H}}$.
+	Entsprechend argumentiert man, wenn P zwischen G und H oder jenseits von H liegt.
+
+	\item \todo{Skizze}
+	Aus dem sws-Satz folgt, dass $\measuredangle PSL = \measuredangle LSP'$ und $\measuredangle P'SL' = \measuredangle L'SP''$.
+	Insgesamt folgt $\measuredangle PSP' = 2 (\measuredangle LSP' + \measuredangle P'SL') = 2 \overbrace{\measuredangle LSL'}^{\text{Winkel zwischen G und H}}$.
+	Ferner gilt $\overline{PS} = \overline{P'S} = \overline{P''S}$. Hieraus folgt die Beh. %qed
+\end{enumerate}
+
+\subsection{Bemerkung}
+Seien $P, Q \in \mathbb{A}^2(\mathbb{R})$ mit $P \neq Q$ und seien $\alpha, \beta \in [0, 2 \pi[$.
+Dann ist die Komposition von Drehungen $\varrho_{Q, \beta} \circ \varrho_{P, \alpha}$
+\begin{itemize}
+	\item eine Drehung um einen Punkt P mit Winkel $\alpha + \beta$, falls $\alpha + \beta \notin \{0, 2 \pi\}$
+	\item eine Translation \todo{Skizze} um den Vektor $\overrightarrow{P \varrho_{Q, \beta}(P)}$, also $\tau_{P \varrho_{Q}(P)}$.
+\end{itemize}
+
+\subsection{Beispiel (Napoleonische Dreiecke)}
+Sei $\triangle ABC$ ein gegebenes Dreieck. Über jeder Seite errichte nach außen ein gleichschenkliges Dreieck mit Spitzenwinkel 120°. \todo{Skizze}
+Nenne die äußeren Ecken P, Q, R. Dann ist $\triangle PQR$ ein gleichseitiges Dreieck.
+
+\subsection{Beweis}
+Betrachte die Komposition $\varrho_{Q, \frac{2 \pi}{3}} \circ \varrho_{R, \frac{2 \pi}{3}} \circ \varrho_{P, \frac{2 \pi}{3}}$.
+Da sich die Winkel zu $2 \pi$ addieren ist die Gesamtabbildung eine Translation.
+Da die Komposition den Punkt B auf sich abbildet, ist sie also die Identität.
+
+Bilde nun das gleichseitige Dreieck $\triangle PQR'$.
+\begin{align*}
+	\varrho_{P, \frac{2 \pi}{3}} (Q) &= Q''   \\
+	\varrho_{R', \frac{2 \pi}{3}} (Q'') &= Q  \\
+	\varrho_{R', \frac{2 \pi}{3}} (P) &= Q'   \\
+	\varrho_{Q, \frac{2 \pi}{3}} (Q') &= P    \\
+	\underbrace{\varrho_{Q, \frac{2 \pi}{3}} \circ \varrho_{R', \frac{2 \pi}{3}} \circ \varrho_{P, \frac{2 \pi}{3}}}
+	 _{\text{also ist auch dies die Indetit\"at}}
+	 (Q) &= Q \\
+	\text{Insgesamt folgt} & \\
+	\varrho_{Q, \frac{2 \pi}{3}} \circ \varrho_{R, \frac{2 \pi}{3}} \circ \varrho_{P, \frac{2 \pi}{3}}
+	&= \varrho_{Q, \frac{2 \pi}{3}} \circ \varrho_{R', \frac{2 \pi}{3}} \circ \varrho_{P, \frac{2 \pi}{3}}
+\end{align*}
+Multipliziert von links mit $\varrho_{Q, -\frac{2 \pi}{3}}$ und von rechts mit $\varrho_{P, -\frac{2 \pi}{3}}$ und erhalte $\varrho_{R, \frac{2 \pi}{3}} = \varrho_{R', \frac{2 \pi}{3}}$.
+Da das Zentrum einer Drehung der einzige Fixpunkt ist, folgt $R = R'$. %qed
