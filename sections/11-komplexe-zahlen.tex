@@ -62,4 +62,123 @@ Fũr $z, z_1, z_2 \in \mathbb{C}$ gilt:
 	\todo{vervollständigen}
 \end{enumerate}
 
+% </2017-01-25> <2017-02-01>
+
+\subsection{Bemerkung}
+$\mathbb{C}$ ist ein 2-dimensionaler $\mathbb{R}$-Vektorraum mit Basis $\{1,i\}$.
+d.h. jede komplexe Zahl $i \in \mathbb{C}$ hat eine eindeutige Darstellung $z = a + b * i$ mit  $a,b \in \mathbb{R}$ und $i \in \mathbb{C}$.
+Es gilt $i^2 = 1$. Siehe auch \ref{sec:regeln-komplexe}.
+
+
+\subsection{Bemerkung}
+In $\mathbb{A}^2(\mathbb{R})$ führen wir kartesische Koordinaten ein und identifizieren die Zahl $z = a+b*i \in \mathbb{C}$ mit dem Punkt $(a,b)$.
+\todo{Skizze}
+
+Geometrische Interpretation der Körperoperationen
+\begin{enumerate}
+\item Addition $(a+b*i) + (c+d*i) = (a+c) + (b+d) * i$ entspricht der Vektoraddition. \todo{Skizze}
+\item Multiplikation mit $i$, $(a+b*i) * i = -b + a * i$, entspricht der Drehung um $90 ^\circ$ um den Nullpunkt im mathematisch positiven Sinne (gegen den Uhrzeigersinn). \todo{Skizze}
+\item Abstand zum Nullpunkt / Länge des Vektors:\\
+	Der Betrag einer komplexen Zahl ist $z = a + b * i$ ist $|z| = \sqrt{a^2 + b^2}$. (nach dem Satz von Pythagoras) \todo{Skizze}\\
+	Eigenschaften des Betrags:
+	\begin{itemize}
+	\item $|z_1 * z_2| = |z_1| * |z_2|$ für $z_1, z_2 \in \mathbb{C}$
+	\item $|c * z| = c * |z|$ für $c \in \mathbb{R}$
+	\item $|z_1 + z_2| \leq |z_1| + |z_2|$ für $z_1, z_2 \in \mathbb{C}$ (Dreiecksungleichung)
+	\end{itemize}
+\item Der Winkel $\varphi$ (oder das Argument) einer komplexen Zahl $z \in \mathbb{Z} \setminus \{0\}$ mit $z = a+b*i$ und $a,b \in \mathbb{R}$ erfüllt $z = |z| * \cos{\varphi} + |z| * \sin{\varphi} * i$ und $\varphi \in [0, 2 \pi[$.
+	Wir schreiben $\varphi = arc (z)$ (''arcus`` \^= Bogen) . \todo{Skizze}
+\item Sei $r=|z|$ und $\varphi = arc(z)$.
+	Dann ist die Multiplikation mit $z = r * \cos{\varphi} + r * \sin{\varphi} * i = r * (\cos{\varphi} + \sin{\varphi} * i)$ die Komposition der Multiplikation mit $\cos{\varphi} + \sin{\varphi} * i$ und der Multiplikation mit $r \in \mathbb{R}_+$.
+	Letztere ist die zentrische Streckung um den Faktor $r$ mit Mittelpunkt 0.
+	Nun wende die erste Multiplikation an auf $\tilde{z} = \tilde{r} * (\cos{\psi} + \sin{\psi} * i)$ .
+	Dann gilt
+	\begin{align*}
+	\tilde{z} * (\cos{\psi} + \sin{\psi} * i) &=
+	\tilde{r} * (\cos{\psi} + \sin{\psi} * i) * (\cos{\varphi} + \sin{\varphi} * i) \\ &=
+	\tilde{r} * \left[ (\cos{\psi}\cos{\varphi} - \sin{\psi}\sin{\varphi}) + (\sin{\psi}\cos{\varphi} + \cos{\psi}\sin{\varphi}) * i \right] \\ &=
+	\tilde{r} * (\cos{(\psi + \varphi)} + \sin{(\psi + \varphi)} * i)
+	\end{align*}
+	Das Produkt hat also den selben Betrag, aber der Winkel ist um $\varphi$ größer.
+	Die Multiplikation mit $\cos{\varphi} + \sin{\varphi} * i$ entspricht also der Drehung um den Winkel $\varphi$ um den Mittelpunkt.
+	Insgesamt ist die Multiplikation mit $z$ also eine Drehstreckung mit Zentrum 0.
 \end{enumerate}
+
+\subsection{Bemerkung (Algebraische Beschreibung geometrischer Mengen)}
+\begin{enumerate}
+\item (Kreis mit Mittelpunkt $m \in \mathbb{C}$ und Radius $r \in \mathbb{R}_+$)\\
+	Der Abstand von $z \in \mathbb{C}$ zu $m$ ist gegeben durch $|z - m|$.
+	Der Kreis ist also gegeben durch
+	\[K = \left\{ z \in \mathbb{C} \middle| |z - m| = r \right\} \]
+\item Die Gerade $G$ durch $z = a + b * i$ und $\tilde{z} = c + d * i$ ist gegeben durch
+	\[G = \left\{ \lambda \in \mathbb{R} \middle| z + \lambda (\tilde{z} - z) \right\} \]
+	Implizite Darstellung  mit $e \in \mathbb{C}, f \in \mathbb{R}$:
+	\[G = \left\{ z \in \mathbb{C} \middle| \overline{e} z + e \overline{z} + f = 0 \right\} \]
+	Es gilt: $\overline{e} z + e \overline{z} = \overline{e} z + \overline{(\overline{e} z)} = 2 Re (\overline{e} z)$.
+	Schreibe $e = \alpha + \beta i$ mit $\alpha, \beta \in \mathbb{R}$ und $z = x + y * i$ mit $x, y \in \mathbb{R}$.
+	Dann folgt:
+	\[Re(\overline{e} z) = Re ((\alpha - \beta i)(x + y i))
+	= Re ((\alpha x + \beta y) + (-\beta x + \alpha y)i)
+	= \alpha x + \beta y
+	\left( = \left< \left( \frac{\alpha}{\beta}  \right), \left( \frac{x}{y} \right) \right> \right) \]
+	Dann folgt: $\overline{e} z + e \overline {z} + \underbrace{f}_{\in \mathbb{R}} = \underbrace{2 \alpha x + 2 \beta y + f} _{\text{implizite Geradengleichung in }\mathbb{R}^2} = 0$
+\end{enumerate}
+
+\subsection{Bemerkung (Algebraische Interpretation von Abbildungen der Zeichenebene)}
+\begin{enumerate}
+\item Die Translation $\tau$ um den Vektor $a + b * i$ ist die Addition
+	$\tau: \mathbb{C} \rightarrow \mathbb{C}; z \rightarrowtail z + (a + b * i)$.
+\item Die Drehung um den Winkel $\varphi$ um den Nullpunkt entspricht der Multiplikation mit $\cos{\varphi} + \sin{\varphi} * i$.
+	Sei nun $m \in \mathbb{C}$.
+	Die Drehung $\varrho_{m, \varphi}$ ist die Komposition von
+	\begin{enumerate}
+	\item Verschiebung um $-m$.
+	\item Drehung um 0 um den Winkel $\varphi$.
+	\item Verschiebung um $m$.
+	\end{enumerate}
+	Es gilt also $\varrho_{m, \varphi}: \mathbb{C} \rightarrow \mathbb{C}; z \rightarrowtail (\cos{\varphi} + \sin{\varphi} * i) (z-m) + m$.
+	\todo{Skizze}
+\item Die Spiegelung an einer Geraden durch 0.
+	$G$ habe den Richtungsvektor $a + b *i$.
+	Die Gerade durch $z$ und $\tilde{z}$ hat dann den Richtungsvektor $-b + a * i$.
+	Dann ist $G \cap H$ der Lotfußpunkt $l \in \mathbb{C}$ und es gilt $\tilde{z} = \sigma_G(z) = z + 2 (l - z) = -z + 2l$.
+	\todo{Skizze}
+\end{enumerate}
+
+\subsection{Bemerkung (Geometrische Interpretation von $z \rightarrowtail \overline{z}$)}
+Die Abbildung $\kappa: \mathbb{C} \rightarrow \mathbb{C}; a+b*i \rightarrowtail a-b*i$ entspricht der Spieglung an der $Re(z)$-Achse (x-Achse).
+\todo{Skizze}
+
+\subsection{Bemerkung (Inversion am Kreis)}
+Die Abbildung $\iota: \mathbb{C} \setminus \{0\} \rightarrow \mathbb{C} \setminus \{0\}; z \rightarrowtail \frac{1}{\overline{z}}$
+wirkt auf $z = a+b*i = r*(\cos{\varphi} + \sin{\varphi} i)$ wie folgt
+\begin{align*}
+\iota(z) &= \frac{1}{\overline{z}} \\
+ &= \overline{\frac{1}{r} * \frac{1}{\cos{\varphi}+\sin{\varphi}*i}} \\
+ &= \overline{\frac{1}{r} * \frac{1 * (\cos{\varphi}-\sin{\varphi}*i)}{(\cos{\varphi}+\sin{\varphi}*i)*(\cos{\varphi}-\sin{\varphi}*i)}} \\
+ &= \frac{1}{r} * \overline{(\cos{\varphi}-\sin{\varphi}*i)} \\
+ &= \frac{1}{r} * (\cos{\varphi}+\sin{\varphi}*i)
+\end{align*}
+Die Zahl $\iota(z)$ liegt also auf dem gleichen Halbstrahl durch 0 wie $z$.
+Ihr Betrag ist $\frac{1}{r}$.
+Der Einheitskreis $\mathbb{E} = \left\{ \cos{\varphi} + \sin{\varphi}*i \middle| \varphi \in [0, 2\pi[ \right\}$ bleibt dabei fest.
+Es gilt $\iota^2(z) = \iota(\iota(z)) = z$.
+Die geometrische Interpretation von $\frac{1}{z}$ ist also der Punkt, der aus $z$ entsteht indem man zuerst an der $Re(z)$-Achse spiegelt und dann die Inversion am Einheitskreis durchführt.
+\[\frac{1}{z} = \iota (\overline{z}) = \frac{1}{\overline{(\overline{z})}} = \frac{1}{z}\]
+\todo{Skizze}
+
+\subsection{Satz (Eigenschaften der Inversion am Kreis)}
+\begin{enumerate}
+\item Ist $G$ eine Gerade in $\mathbb{C}$, die nicht durch 0 geht, so ist $\iota(G)$ ein Kreis.
+\item Ist $G$ eine Gerade in $\mathbb{C}$, die durch 0 geht, so ist $\iota(G \setminus \{0\}) = G \setminus \{0\}$.
+\item Ist $K$ ein Kreis in $\mathbb{C}$, der durch 0 geht, so ist $\iota(K \setminus \{0\})$ eine Gerade, die nicht durch 0 geht.
+\item Ist $K$ ein Kreis in $\mathbb{C}$, der nicht durch 0 geht, so ist $\iota(K)$ wieder ein Kreis (der nicht durch 0 geht).
+\end{enumerate}
+
+\subsection{Bemerkung (Die komplexe e-Funktion)}
+Die reelle e-Funktion $x \rightarrowtail e^x$ erfüllt $(e^x)' = e^x$ und $e^0=1$.
+Für alle $x \in \mathbb{R}$ gilt $e^x = 1+\frac{1}{1!}x+\frac{1}{2!}x^2+\frac{1}{3!}x^3+\cdots = \sum_{n \geq 0} \frac{1}{n!}x^n$.
+Für $z \in \mathbb{C}$ konvergiert die Reihe $e^z = \sum_{n \geq 0} \frac{1}{n!}z^n \in \mathbb{C}$ ebenfalls.
+Man prüft nach, dass $e^{z_1+z_2} = e^{z_1} * e^{z_2}$ für alle $z_1, z_2 \in \mathbb{C}$ gilt.
+
+% </2017-02-01>
