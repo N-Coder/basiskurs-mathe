@@ -50,16 +50,22 @@ Für $z \in \mathbb{C}$ schreiben wir statt $\kappa(z)$ auch $\overline{z}$.
 
 \subsection{Bemerkung (Rechenregeln für die komplexe Konjugation)}
 \label{sec:regeln-komplexe}
-Fũr $z, z_1, z_2 \in \mathbb{C}$ gilt:
+Für $z, z_1, z_2 \in \mathbb{C}$ gilt:
 \begin{enumerate}
 \item $\overline{z} = z$
 \item $\overline{z_1 + z_2} = \overline{z_1} + \overline{z_2}$
 \item $\overline{z_1 \cdot z_2} = \overline{z_1} \cdot \overline{z_2}$
 \item Für alle $a \in \mathbb{R}$ gilt $\overline{a \cdot z} = a \cdot \overline{z}$
 \item $\frac{1}{\overline{z}} = \overline{\frac{1}{z}}$ falls $z \neq 0$
-\item $z + \overline{z} = 2 a = 2 * Re(z)$ \\
-	$z - \overline{z} = 2 bi = 2 * Im(z) * i$
-	\todo{vervollständigen}
+\item
+	\begin{align}
+	z + \overline{z} &= 2 a &= 2 * Re(z)\\
+	z - \overline{z} &= 2 bi &= 2 * Im(z) * i
+	\begin{cases}
+	Re(z) = \frac{1}{2}(z + \overline{z}) \\
+	Im(z) = \frac{1}{2i}(z - \overline{z}) = -\frac{i}{2}(z - \overline{z})
+	\end{cases}
+	\end{align}
 \end{enumerate}
 
 % </2017-01-25> <2017-02-01>
@@ -120,7 +126,7 @@ Geometrische Interpretation der Körperoperationen
 	\[Re(\overline{e} z) = Re ((\alpha - \beta i)(x + y i))
 	= Re ((\alpha x + \beta y) + (-\beta x + \alpha y)i)
 	= \alpha x + \beta y
-	\left( = \left< \left( \frac{\alpha}{\beta}  \right), \left( \frac{x}{y} \right) \right> \right) \]
+	\left( = \left< \binom{\alpha}{\beta}, \binom{x}{y} \right> \right) \]
 	Dann folgt: $\overline{e} z + e \overline {z} + \underbrace{f}_{\in \mathbb{R}} = \underbrace{2 \alpha x + 2 \beta y + f} _{\text{implizite Geradengleichung in }\mathbb{R}^2} = 0$
 \end{enumerate}
 
