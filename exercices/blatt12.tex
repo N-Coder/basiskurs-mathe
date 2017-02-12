@@ -1,0 +1,91 @@
+\documentclass[a4paper,10pt]{article}
+
+% IMPORTS
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{titlesec}
+\usepackage{wrapfig}
+\usepackage[ngerman]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage{pdfpages}
+\usepackage{placeins}
+\usepackage{color}
+\usepackage{eurosym}
+\usepackage{xargs}
+\usepackage{xcolor}
+\usepackage{subcaption}
+\usepackage{hyperref}
+\usepackage{mathtools}
+\usepackage[margin=2cm]{geometry}
+\usepackage[colorinlistoftodos,prependcaption,textsize=tiny]{todonotes}
+
+% CONFIG
+\clubpenalty = 9000
+\widowpenalty = 9000
+\displaywidowpenalty = 9000
+\titlespacing\subsection{0pt}{14pt plus 4pt minus 2pt}{2pt plus 2pt minus 1pt}
+\titlespacing\subsection{0pt}{10pt plus 4pt minus 2pt}{2pt plus 2pt minus 1pt}
+\setlength{\parindent}{0pt}
+\setcounter{tocdepth}{2}
+
+% -----------------------------------------------------------------------------
+\begin{document}
+\begin{center}
+	\huge Basiskurs Mathematik bei Prof. Kreuzer im WS 16/17 \\
+	\Huge \textbf{Lösung Übungsblatt 12} \\
+	\normalsize
+\end{center}
+
+\section{Aufgabe}
+Das Viereck $YWXZ$ ist ein Parallelogramm $\Leftrightarrow$ $W-X$ und $Y-Z$ sind identisch
+
+$\sigma_{C,-60^\circ} \circ \sigma_{A,60^\circ}$ ist eine Translation.\\
+\[Y \xmapsto{\sigma_{A,60^\circ}} B \xmapsto{\sigma_{C,-60^\circ}} W\]
+\[Z \xmapsto{\sigma_{A,60^\circ}} D \xmapsto{\sigma_{C,-60^\circ}} X\]
+Damit wurde $\overline{YZ}$ durch eine Translation (die Länge und Orientierung erhält) identisch auf $\overline{WX}$ abgebildet.
+
+
+\section{Aufgabe}
+\[\varphi = \lambda_{B, \frac{1}{2}} \circ \sigma_{B,-60^\circ} \circ \sigma_{M,180^\circ} \circ \sigma_{B,-60^\circ} \circ \lambda_{B,2}\]
+$\varphi$ ist eine Drehung um $60^\circ$ und eine (längenerhaltende) Kongruenzabbildung
+\[N\xmapsto{\lambda_{B,2}} D \xmapsto{\sigma_{B,-60^\circ}} A \xmapsto{\sigma_{M,180^\circ}} C \xmapsto{\sigma_{B,-60^\circ}} E \xmapsto{\lambda_{B, \frac{1}{2}}} P\]
+$\Rightarrow$ $\triangle MNP$ ist gleichseitig.
+
+
+\section{Aufgabe}
+\begin{enumerate}
+\item \[(1+2i)^3 = 1+3*2i+3(2i)^2+(2i)^3=\cdots=-11+(-2)i\] \\ %Re(z)=-11 Im(z)=-2\]
+
+\item \begin{align*}
+\left( \frac{2+i}{3-2i} \right)^2 &= \frac{4+4i+i^2}{9-12i+4i^2} \text{ hilft nichts, deswegen lieber }(A-B)(A+B)=A^2-B^2  \\
+&= \left( \frac{(2+i) * (3+2i)}{\underbrace{(3-2i) * (3+2i)}_{\in \mathbb{R}}} \right)^2 = -\frac{33}{169} + \frac{56}{169}i \\
+\end{align*}
+
+\item \begin{align*}
+(1+i)^0 &= 1 \\
+(1+i)^1 &= 1+i \\
+(1+i)^2 &= 2i \\
+(1+i)^3 &= -2+2i \\
+(1+i)^4 &= -4 \\
+(1+i)^n &= (1+i)^{4q+r} = \left( (1+i)^4) \right)^q * (1+i)^r = (-4)^q  * (1+i)^r = \begin{cases}
+(-4)^q &;r=0 \\
+(-4)^q + (-4)^qi &;r=1 \\
+2(-4)^qi &;r=2 \\
+-2(-4)^q + -2(-4)^qi &;r=3
+\end{cases} \\
+n&=4q+r \text{ mit } q \in \{0,1,2,3\} \text{ \textit{(Division mit Rest)}}
+\end{align*}
+\end{enumerate}
+
+\section{Aufgabe}
+\begin{align*}
+g,p,f,f_1,f_2,s &\in \mathbb{C} \text{ (Galgen, Palme, Felsen, Fahne 1, Fahne 2, Schatz)}\\
+f_1 &= p + i(p-g)\\
+f_2 &= f - i(f-g)\\
+s &= \frac{f_1+f_2}{2} = \cdots = \frac{p+f}{2} + \frac{p-f}{2} * i \\
+&\Rightarrow s \text{ ist unabh\"angig von }g
+\end{align*}
+
+\end{document}
