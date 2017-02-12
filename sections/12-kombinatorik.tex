@@ -1,0 +1,84 @@
+%!TEX root = ../basiskurs.tex
+\section{Kombinatorik}
+Kombinatorik ist die Kunst des Zählens. {\small \textit{Analysis ist alleine schon per Defition \textbf{vüüüll} schwarer als Kombinatorik.}}
+
+\subsection{Definition}
+Seien $a_1,\ldots,a_n$ mit $n\geq1$ paarweise verschiedene Objekte.
+\begin{enumerate}
+\item Eine feste Anordnung $(a_{i_1},a_{i_2},a_{i_3},\ldots,a_{i_n})$ mit $\{i_1,\ldots,i_n\} = \{1,\ldots,n\}$ heißt auch eine Permutation von $a_1,\ldots,a_n$. \\
+\textbf{Schreibweisen}: $\sigma = \binom{a_1,\ldots,a_n}{a_{i_1},\ldots,a_{i_n}}$ oder einfach $\sigma = \binom{1,2,\ldots,n}{i_1,i_2,\ldots,i_n}$.\\
+Ohne Einschränkung betrachten wir also meist die Permutation der Menge $\{1,2,\ldots,n\}$.
+\item Die Menge aller Permutationen von $n$ Objekten heißt die  symmetrische Gruppe $S_n$.
+\end{enumerate}
+
+\subsection{Satz}
+Die Gruppe $S_n$ hat $n!$ Elemente.
+\textbf{Beweis:} Halte ein Element, z.B. $a_1$ fest. Für die Bilder $\sigma(a_1)$ unter $\sigma\in S_n$ gibt es $n$ Möglichkeiten.
+Für $\sigma(a_2)$ gibt es dann noch $n-1$ Möglichkeiten.
+Für $\sigma(a_3)$ gibt es dann noch $n-2$ Möglichkeiten. \dots
+Am Ende gibt es dann nur noch $1$ Auswahl für $\sigma(a_n)$.
+Insgesamt gibt es $n * (n-1) * (n-2) * \cdots * 2 * 1 = n!$ Permutationen.
+
+\subsection{Beispiel}
+Wir ordnen Permutationen.
+Wie viele Transpositionen (Permutationen der Form $\tau=\binom{1 \cdots i \cdots j \cdots n}{1 \cdots j \cdots i \cdots n}$) braucht man, um eine beliebige Permutation rückgängig zu machen?
+\begin{enumerate}
+\item Obere Schranke:
+	\begin{enumerate}
+	\item Bringe zuerst die $1$ an die erste Stelle.
+	\item Bringe dann die $2$ an die zweite Stelle.
+	\item \dots
+	\item Bringe zuletzt die $n-1$ an die vorletzte Stelle. \\
+		Die Zahl $n$ ist damit automatisch richtigerweise an der letzten Stelle.
+	\end{enumerate}
+	Somit braucht man max. $n-1$ Transpositionen.
+\item Kandidat fürs Maximum / Untere Schranke:
+	\[\sigma = \left( \begin{matrix}
+	1 & 2 & 3 & \cdots & (n-1) & n \\ n & (n-1) & (n-2) & \cdots & 2 & 1
+	\end{matrix} \right) \]
+	Man braucht $\tau_{1n}, \tau_{2(n-1)}, \tau_{3(n-2)}, \ldots \tau_{\frac{n-1}{2} \frac{n+1}{2}}$, falls $n$ ungerade ist. \\
+	Für $n$ gerade braucht man $\tau_{1n}, \tau_{2(n-1)}, \tau_{3(n-2)}, \ldots \tau_{\frac{n}{2} \frac{n+2}{2}}$. \\
+	Die sind $\left \lceil \frac{n-1}{2} \right \rceil = \left \lfloor \frac{n+1}{2} \right \rfloor $ Stück.
+\item Aus der Zykelzerlegung folgt, dass die untere Schranke konstant ist.
+	\[\text{Zykel: } \sigma = \underbrace{\left( \begin{matrix}
+	1 & 2 & 3 & 4 & 5 \\ 2 & 3 & 4 & 5 & 1
+	\end{matrix} \right)}_{5-Zykel} \text{ oder }
+	\sigma = \underbrace{\left( \begin{matrix}
+	1 & 2 & 3 & 4 & 5 \\ 1 & 2 & 4 & 5 & 3
+	\end{matrix} \right)}_{3-Zykel} \]
+	Die Darstellung eines k-Zykels kann man mit einer Transposition in zwei kürzere Zyklen aufspalten.
+	Ist $m$ die Zahl der Zyklen in der Zykelzerlegung so braucht man max $n-m$ Transposition um $\sigma$ in lauter Transpositionen aufspalten.
+\item Aus den beiden vorherigen Punkten folgt, dass das gesuchte Maximum $\left \lfloor \frac{n+1}{2} \right \rfloor$ ist.
+\end{enumerate}
+
+\subsection{Defintion (Teilmengen zählen)}
+Gegeben seien $n$ paarweise verschiedene Objekte $a_1,\ldots,a_n$.
+\begin{itemize}
+\item Sei $0 \leq m \leq n$. Eine Teilmenge von der Menge $\{a_1,\ldots,a_n\}$ bestehend aus $m$ Elemente heißt auch eine Auswahl von $m$ Elementen.
+\item Die Anzahl der Auswahlen von $m$ Elementen aus $\{a_1,\ldots,a_n\}$ heißt der Binomialkoeffizient $\binom{n}{m}$.
+	(sprich ``m aus n'', ``n über m'' oder ``n choose m'')
+\end{itemize}
+
+\subsection{Satz (Formel für den Binomialkoeffizienten)}
+Für $n \geq 1$ und $0 \leq m \leq n$ gilt mit $0!=1$:
+\[ \binom{n}{m} = \frac{n*(n-1)*(n-2)*\cdots*(n-m+1)}{1*2*\cdots*m} = \frac{n!}{m!*(n-m)!} \]
+
+\subsection{Bemerkung (Das paskalsche Dreieck)}
+\begin{itemize}
+\item Die Binomialkoeffizienten erfüllen die Formel
+	\[ \binom{n}{m} = \binom{n-1}{m} + \binom{n-1}{m-1} \text{ f\"ur } m\geq1,\,n\geq2 \]
+	\textbf{Beweis}: Sei $a_1$ ein festes Element von $\{a_1,\ldots,a_n\}$.
+	\begin{itemize}
+	\item Eine Teilmenge, die $a_1$ enthält, besteht aus $a_1$ und $(m-1)$ Elementen von $\{a_2,\ldots,a_n\}$.
+		\[\rightarrow \binom{n-1}{m-1} \text{ M\"oglichkeiten}\]
+	\item Eine Teilmenge, die $a_1$ nicht enthält, entspricht einer Auswahl von Elementen aus $\{a_2,\ldots,a_n\}$.
+		\[\rightarrow \binom{n-1}{m} \text{ M\"oglichkeiten}\]
+	\end{itemize}
+	Da immer genau einer der beiden Fälle eintritt, folgt in Summe die Behauptung.
+\item Die Binomialkoeffizienten sind gegeben durch \todo{Skizze paskalsches Dreieck}
+\end{itemize}
+
+\subsection{Beispiel}
+Betrachte das Gitter ...
+
+% </2017-02-08 11:21>

@@ -188,3 +188,38 @@ Für $z \in \mathbb{C}$ konvergiert die Reihe $e^z = \sum_{n \geq 0} \frac{1}{n!
 Man prüft nach, dass $e^{z_1+z_2} = e^{z_1} * e^{z_2}$ für alle $z_1, z_2 \in \mathbb{C}$ gilt.
 
 % </2017-02-01>
+\todo{Konvertierung polar $\leftrightarrow$ kartesisch}
+% <2017-02-01>
+
+\subsection*{Überleitung zur komplexen $e$-Funktion}
+In Analysis wird bewiesen $e^x = 1 + \frac{1}{1!}x + \frac{1}{2!}x^2 + \frac{1}{3!}x^3 + \cdots$ mit $i!= 1*2*3*\cdots*i$.
+\begin{align}
+\sin{x} &= \frac{1}{1!}x - \frac{1}{3!}x^3 + \frac{1}{5!}x^5 - \cdots \\
+\cos{x} &= 1 - \frac{1}{2!}x^2 + \frac{1}{4!}x^4 - \frac{1}{6!}x^6 + \cdots 
+\end{align}
+Dies sind Potenzreihen, die für jedes $x\in\mathbb{R}$ konvergieren.
+Durch dieselben Potenzreihen erhält man $e^z,\,\sin{z},\,\cos{z}$ für alle $z\in\mathbb{C}$.
+Man weist auch nach: $e^{z_1+z_2} = e^{z_1} * e^{z_2}$ für $z_1, z_2 \in \mathbb{C}$.
+
+\subsection{Die eulersche Formel}
+Für alle $\varphi \in \mathbb{R}$ gilt: $e^{i\varphi} = \underbrace{\cos{\varphi}+i*\sin{\varphi}}_{\text{Punkt auf dem Einheitskreis}}$
+Beweis: Es gilt:
+\begin{align}
+e^{i\varphi}
+&= \underbrace{1}_1 + \frac{1}{1!}(\underbrace{i}_i\varphi) + \frac{1}{2!}(\underbrace{i^2}_{-1}\varphi^2) + \frac{1}{3!}(\underbrace{i^3}_{-i}\varphi^3) + \cdots \\
+&= (1 - \frac{1}{2!}x^2 + \frac{1}{4!}x^4 - \frac{1}{6!}x^6 + \cdots) + i (\frac{1}{1!}x - \frac{1}{3!}x^3 + \frac{1}{5!}x^5 - \cdots) \\
+&= \cos{\varphi}+i*\sin{\varphi} \\
+\end{align}
+
+\subsection{Korollar}
+\[e^{i\pi}+1=0\]
+
+\subsection{Beispiel}
+Aus der eulerschen Formel folgt
+\begin{align}
+e^{i(\alpha+\beta)} &= \cos{(\alpha+\beta)}+i*\sin{(\alpha+\beta)} \\
+% \text{Ferner gilt }
+e^{i(\alpha+\beta)} &= e^{i\alpha} * e^{i\beta}=(\cos{\alpha}+i*\sin{\alpha})(\cos{\beta}+i*\sin{\beta}) \\
+&= \left[ \cos{\alpha}\cos{\beta}-\sin{\alpha}\sin{\beta} \right] + i \left[ \sin{\alpha}\cos{\beta}+\cos{\alpha}\sin{\beta} \right]
+\end{align}
+Durch Vergleich der Real- und Imaginärteile folgen die Additionstheoreme für $\sin{\alpha}$ und $\cos{\alpha}$.
